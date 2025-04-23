@@ -1,0 +1,15 @@
+version: 2
+enable-beta-ecosystems: true
+updates:
+  - package-ecosystem: "helm" 
+    directory: "/charts/otterdog/"
+    schedule:
+      interval: "daily"
+      time: "10:00"
+    commit-message:
+      prefix: "deps-helm"
+      include: "scope"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
