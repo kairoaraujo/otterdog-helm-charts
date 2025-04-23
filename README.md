@@ -1,6 +1,6 @@
 # helm-charts
 
-Eclipse CSI helm charts
+Eclipse Common Security Infrastructure (CSI) helm charts
 
 ## Usage
 
@@ -24,3 +24,7 @@ You can search all eclipse-csi charts using following command:
 ```bash
 helm search repo eclipse-csi
 ```
+
+## Contributing
+
+See https://github.com/eclipse-csi/helm-charts
