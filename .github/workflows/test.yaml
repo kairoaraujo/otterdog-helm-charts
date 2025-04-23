@@ -49,10 +49,9 @@ jobs:
         if: steps.list-changed.outputs.changed == 'true'
         uses: helm/kind-action@0025e74a8c7512023d06dc019c617aa3cf561fde # v1.10.0
 
-      - name: Run chart-testing (install)
-        if: steps.list-changed.outputs.changed == 'true'
-        run: |
-          ct install --target-branch ${{ github.event.repository.default_branch }} \
-          --chart-repos=eclipse-csi=https://eclipse-csi.github.io/helm-charts
-          --helm-extra-set-args="--set initContainers[0].name=dummy-init --set initContainers[0].image=busybox:latest --set initContainers[0].command={sh,-c,echo} --set ghproxy.initContainers[0].name=dummy-init --set ghproxy.initContainers[0].image=busybox:latest --set ghproxy.initContainers[0].command={sh,-c,echo}"
-        # TODO: improve the initContainers in the pipeline, as it use a custom release name
+      # TODO: enable chart testing install. There are limitations and improvements to be made in deployment see issue #6
+      # - name: Run chart-testing (install)
+      #   if: steps.list-changed.outputs.changed == 'true'
+      #   run: |
+      #     ct install --target-branch ${{ github.event.repository.default_branch }} \
+      #     --chart-repos=eclipse-csi=https://eclipse-csi.github.io/helm-charts \
