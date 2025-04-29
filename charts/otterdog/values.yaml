@@ -166,14 +166,14 @@ affinity: {}
 # @param livenessProbe.httpGet.port Liveness probe port
 livenessProbe:
   httpGet:
-    path: /
+    path: /internal/health
     port: http
 # @section readinessProbe
 # @param readinessProbe.httpGet.path Readiness probe path
 # @param readinessProbe.httpGet.port Readiness probe port
 readinessProbe:
   httpGet:
-    path: /
+    path: /internal/health
     port: http
 
 # @mongodb section
