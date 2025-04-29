@@ -90,6 +90,14 @@ ingress:
         - path: /
           pathType: ImplementationSpecific
 
+## @Section Router
+## @param router.enabled Enable router
+## @param router.className Router class name
+## @param router.annotations Router annotations
+## @param router.hosts Router hosts
+router:
+  enabled: false
+
 ## @section Service
 ## @param service.type Service type
 ## @param service.port Service port
