@@ -97,13 +97,13 @@ spec:
               value: {{ .Values.config.redisUri | quote }}
             - name: GHPROXY_URI
               value: {{ .Values.config.ghProxyUri | quote }}
-            - name: CONFIG_OWNER
+            - name: OTTERDOG_CONFIG_OWNER
               value: {{ .Values.config.configOwner | quote }}
-            - name: CONFIG_REPO
+            - name: OTTERDOG_CONFIG_REPO
               value: {{ .Values.config.configRepo | quote }}
-            - name: CONFIG_PATH
+            - name: OTTERDOG_CONFIG_PATH
               value: {{ .Values.config.configPath | quote }}
-            - name: CONFIG_TOKEN
+            - name: OTTERDOG_CONFIG_TOKEN
               valueFrom:
                 secretKeyRef:
                   name: config-token-secret
@@ -131,10 +131,7 @@ spec:
             - name: GITHUB_APP_ID
               value: {{ .Values.github.appId | quote }}
             - name: GITHUB_APP_PRIVATE_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: app-private-key
-                  key: privateKey
+              value: /run/secrets/app-private-key/app.key
       volumes:
         {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
@@ -153,11 +150,6 @@ spec:
         - name: app-private-key-volume
           secret:
             secretName: app-private-key
-        {{- end }}
-        {{- if .Values.gcpCredentials }}
-        - name: gcp-credentials-volume
-          secret:
-            secretName: gcp-credentials
         {{- end }}
         {{- if .Values.dependencyTrackToken }}
         - name: dependency-track-token-volume
