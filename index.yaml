@@ -28,6 +28,31 @@ entries:
   otterdog:
   - apiVersion: v2
     appVersion: 1.1.0
+    created: "2025-09-18T07:21:01.254718007Z"
+    dependencies:
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.5.45
+    - condition: valkey.enabled
+      name: valkey
+      repository: https://charts.bitnami.com/bitnami
+      version: 3.0.31
+    - condition: ghproxy.enabled
+      name: ghproxy
+      repository: https://eclipse-csi.github.io/helm-charts
+      version: 0.2.0
+    description: An otterdog Web App Helm chart for Kubernetes
+    digest: 84c492014045c5a5b6d6ef78f291e694bf1790efa8cb572c4e5bdf69330af9a8
+    maintainers:
+    - name: eclipse-csi
+    name: otterdog
+    type: application
+    urls:
+    - https://github.com/eclipse-csi/helm-charts/releases/download/otterdog-1.1.3/otterdog-1.1.3.tgz
+    version: 1.1.3
+  - apiVersion: v2
+    appVersion: 1.1.0
     created: "2025-09-04T11:58:49.901168871Z"
     dependencies:
     - condition: mongodb.enabled
@@ -251,4 +276,4 @@ entries:
     urls:
     - https://github.com/eclipse-csi/helm-charts/releases/download/otterdog-1.0.0/otterdog-1.0.0.tgz
     version: 1.0.0
-generated: "2025-09-04T11:58:49.901215038Z"
+generated: "2025-09-18T07:21:01.25475152Z"
