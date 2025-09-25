@@ -109,7 +109,7 @@ spec:
                   name: config-token-secret
                   key: token
             - name: DEPENDENCY_TRACK_URL
-              value: {{ .Values.config.dependecyTrackUrl | quote }}
+              value: {{ .Values.config.dependencyTrackUrl | quote }}
             - name: DEPENDENCY_TRACK_TOKEN
               valueFrom:
                 secretKeyRef:

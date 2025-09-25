@@ -39,8 +39,8 @@ fullnameOverride: ""
 ## @param config.configRepo GitHub repo hosting the otterdog.json, e.g. otterdog-configs
 ## @param config.configPath Path to the otterdog.json, e.g. otterdog.json
 ## @param config.configToken a valid GitHub token, no need for any permissions, just for rate limit purposes
-## @param config.dependecyTrackUrl Dependency-Track URL
-## @param config.dependecyTrackToken a valid Dependency-Track token, no need for any permissions, just for rate limit purposes
+## @param config.dependencyTrackUrl Dependency-Track URL
+## @param config.dependencyTrackToken a valid Dependency-Track token, no need for any permissions, just for rate limit purposes
 config:
   debug: false
   baseUrl: "http://0.0.0.0:5000"
@@ -53,8 +53,8 @@ config:
   configRepo: ".otterdog"
   configPath: "/app/otterdog.json"
   configToken: ""
-  dependecyTrackUrl: ""
-  dependecyTrackToken: ""
+  dependencyTrackUrl: ""
+  dependencyTrackToken: ""
 
 ## @Section GitHub
 ## @param github.adminTeams GitHub admin teams
