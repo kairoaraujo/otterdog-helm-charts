@@ -2,6 +2,18 @@ apiVersion: v1
 entries:
   ghproxy:
   - apiVersion: v2
+    appVersion: v20251030-0e4d5be42
+    created: "2025-11-06T13:19:53.995659438Z"
+    description: A Helm chart for ghproxy
+    digest: 839d0f3012880b0cbf69699f0dcca613f8328fb8d086b393b9dcc08cbbdf1dce
+    maintainers:
+    - name: eclipse-csi
+    name: ghproxy
+    type: application
+    urls:
+    - https://github.com/eclipse-csi/helm-charts/releases/download/ghproxy-0.3.0/ghproxy-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
     appVersion: v20250522-9b3f5faca
     created: "2025-05-27T13:45:23.59881268Z"
     description: A Helm chart for ghproxy
@@ -293,4 +305,4 @@ entries:
     urls:
     - https://github.com/eclipse-csi/helm-charts/releases/download/otterdog-1.0.0/otterdog-1.0.0.tgz
     version: 1.0.0
-generated: "2025-09-25T06:56:05.903328569Z"
+generated: "2025-11-06T13:19:53.995699684Z"
