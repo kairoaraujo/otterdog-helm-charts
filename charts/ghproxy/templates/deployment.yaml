@@ -40,8 +40,26 @@ spec:
           {{- if .Values.redisAddress }}
             - "--redis-address={{ .Values.redisAddress }}"
           {{- end }}
-          {{- if .Values.args }}
-          {{- range .Values.args }}
+          {{- if .Values.redisUsername }}
+            - "--redis-username={{ .Values.redisUsername }}"
+          {{- end }}
+          {{- if .Values.redisPassword }}
+            - "--redis-secret-file=/etc/ghproxy-redis/redis-password"
+          {{- end }}
+          {{- if ne .Values.legacyDisableDiskCachePartitionsByAuthHeader nil }}
+            - "--legacy-disable-disk-cache-partitions-by-auth-header={{ .Values.legacyDisableDiskCachePartitionsByAuthHeader }}"
+          {{- end }}
+          {{- if .Values.throttlingTimeMs }}
+            - "--throttling-time-ms={{ .Values.throttlingTimeMs }}"
+          {{- end }}
+          {{- if .Values.getThrottlingTimeMs }}
+            - "--get-throttling-time-ms={{ .Values.getThrottlingTimeMs }}"
+          {{- end }}
+          {{- if .Values.logLevel }}
+            - "--log-level={{ .Values.logLevel }}"
+          {{- end }}
+          {{- if .Values.extraArgs }}
+          {{- range .Values.extraArgs }}
             - {{ . }}
           {{- end }}
           {{- end }}
@@ -50,6 +68,11 @@ spec:
           volumeMounts:
             - name: cache-volume
               mountPath: {{ .Values.persistence.mountPath }}
+            {{- if .Values.redisPassword }}
+            - name: redis-secret
+              mountPath: /etc/ghproxy-redis
+              readOnly: true
+            {{- end }}
       volumes:
         - name: cache-volume
           {{- if .Values.persistence.enabled }}
@@ -59,3 +82,11 @@ spec:
           hostPath:
             path: ../approot/ghcache
           {{- end }}
+        {{- if .Values.redisPassword }}
+        - name: redis-secret
+          secret:
+            secretName: {{ include "ghproxy.fullname" . }}-redis-auth
+            items:
+              - key: redis-password
+                path: redis-password
+        {{- end }}

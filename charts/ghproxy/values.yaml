@@ -9,15 +9,21 @@
 #
 image:
   repository: us-docker.pkg.dev/k8s-infra-prow/images/ghproxy
-  tag: v20250522-9b3f5faca
+  tag: v20251030-0e4d5be42
   pullPolicy: IfNotPresent
 
 redisAddress: valkey:6379
-args:
-  - --legacy-disable-disk-cache-partitions-by-auth-header=false
-  - --throttling-time-ms=10
-  - --get-throttling-time-ms=10
-  - --log-level=error
+redisUsername: ""
+redisPassword: ""
+legacyDisableDiskCachePartitionsByAuthHeader: false
+throttlingTimeMs: 10
+getThrottlingTimeMs: 10
+logLevel: error
+# Additional custom arguments (if needed)
+# Example:
+# extraArgs:
+#   - "--custom-arg=value"
+extraArgs: []
 
 service:
   port: 8888
