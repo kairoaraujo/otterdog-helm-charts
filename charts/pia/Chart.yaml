@@ -1,6 +1,6 @@
 apiVersion: v2
 name: pia
-description: A Helm chart for PIA (Project Information Aggregator)
+description: A Helm chart for PIA (Project Identity Authority)
 type: application
 version: 0.0.1
 appVersion: "0.1.0"
