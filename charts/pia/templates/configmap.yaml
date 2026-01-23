@@ -5,5 +5,8 @@ metadata:
   labels:
     {{- include "pia.labels" . | nindent 4 }}
 data:
-  allowlist.yaml: |
-    {{- .Values.config.allowlist | toYaml | nindent 4 }}
+  projects.yaml: |
+    {{- range $name, $project := .Values.config.projects }}
+    - project_id: {{ $name }}
+      {{- toYaml $project | nindent 6 }}
+    {{- end }}

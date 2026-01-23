@@ -43,8 +43,8 @@ spec:
               containerPort: {{ .Values.service.targetPort }}
               protocol: TCP
           env:
-            - name: PIA_ALLOWLIST_PATH
-              value: /app/allowlist.yaml
+            - name: PIA_PROJECTS_PATH
+              value: /app/projects.yaml
             - name: PIA_DEPENDENCY_TRACK_URL
               value: {{ .Values.config.dependencyTrackUrl | quote }}
             - name: PIA_EXPECTED_AUDIENCE
@@ -70,15 +70,15 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - name: allowlist-config
-              mountPath: /app/allowlist.yaml
-              subPath: allowlist.yaml
+            - name: projects-config
+              mountPath: /app/projects.yaml
+              subPath: projects.yaml
               readOnly: true
             {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
       volumes:
-        - name: allowlist-config
+        - name: projects-config
           configMap:
             name: {{ include "pia.fullname" . }}-config
         {{- with .Values.volumes }}

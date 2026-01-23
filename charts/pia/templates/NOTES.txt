@@ -28,9 +28,9 @@
 
    Dependency Track URL: {{ .Values.config.dependencyTrackUrl }}
    Expected Audience: {{ .Values.config.expectedAudience }}
-   Allowed projects:
-   {{- if .Values.config.allowlist.projects }}
-   {{- range $name, $project := .Values.config.allowlist.projects }}
+   Projects:
+   {{- if .Values.config.projects }}
+   {{- range $name, $project := .Values.config.projects }}
 
      {{ $name }}:
        issuer: {{ $project.issuer }}
